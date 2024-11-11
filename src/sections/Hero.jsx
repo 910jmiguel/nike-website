@@ -1,6 +1,7 @@
 import { arrowRight } from "../assets/icons";
 import Button from "../components/Button";
-import { statistics } from "../constants"
+import { shoes, statistics } from "../constants"
+import { bigShoe1 } from "../assets/images";
 
 const Hero = () => {
   return (
@@ -23,14 +24,33 @@ const Hero = () => {
         <div className="flex justify-starts items-start flex-wrap w-full mt-20 gap-16"> 
           {statistics.map((stat) => (
               <div key={stat.label}>
-                <p>{stat.value}</p>
-                <p>{stat.label}</p>
+                <p className="text-4xl font-palanquin font-bold">{stat.value}</p>
+                <p className="leading-7 font-montserrat text-slate-gray">{stat.label}</p>
               </div>
             ))}
+        </div>
+      </div>
+
+      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-center">
+        <img
+          src={bigShoe1} 
+          alt="shoe collection"
+          width={610}
+          height={500}
+          className="object-contain relative z-10"
+        />
+
+        <div>
+          {shoes.map((shoe) => 
+          (
+            <div key={shoe}>
+              <ShoeCard />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
-
+//1:37:17
 export default Hero
